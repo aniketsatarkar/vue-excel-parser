@@ -1,3 +1,9 @@
 <template>
-  <router-view />
+  <body class="d-flex h-100">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <main class="px-3">
+        <router-view />
+      </main>
+    </div>
+  </body>
 </template>
