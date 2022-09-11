@@ -6,7 +6,7 @@
       :language_selector="false"
       :wrap_code="true"
       :display_language="false"
-      height="400px"
+      :height="editorHeight"
       width="100%"
       border_radius="0px"
     />
@@ -26,6 +26,11 @@ export default defineComponent({
     code: {
       default: "",
       type: String,
+    },
+  },
+  computed: {
+    editorHeight() {
+      return "calc(100vh - 462px)";
     },
   },
   setup() {},

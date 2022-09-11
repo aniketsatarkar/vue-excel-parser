@@ -8,21 +8,23 @@
           rows="10"
           max-rows="6"
         ></b-form-textarea>
-        <div class="mt-3">
-          <b-form-checkbox v-model="hasHeader">
-            Consider with column titles
-          </b-form-checkbox>
+        <div class="row mt-3">
+          <div class="col-6">
+            <b-form-checkbox v-model="hasHeader">
+              Consider with column titles
+            </b-form-checkbox>
+          </div>
+          <div
+            v-if="text !== '' && !isExcel"
+            class="col-6 text-danger text-right"
+          >
+            This is format cannot be parsed, please try again
+          </div>
         </div>
-      </div>
-      <div
-        v-if="text !== '' && !isExcel"
-        class="col-12 mt-3 text-center text-danger"
-      >
-        This is format cannot be parsed, please try again
       </div>
 
       <div class="col-12 mt-3">
-        <b-card no-body>
+        <b-card no-body class="dynamic-height">
           <b-tabs card>
             <b-tab title="JSON" active>
               <b-card-text>
@@ -141,3 +143,12 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.dynamic-height {
+  height: calc(100vh - 378px);
+}
+.text-right {
+  text-align: right;
+}
+</style>
